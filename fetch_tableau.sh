@@ -5,7 +5,6 @@
 
 # Set bash behaviour
 set -o errexit      	# Exit on uncaught errors
-set -o nounset      	# Dont allow unset variables
 set -o pipefail     	# Fail pipe on first error
 
 declare git_location="/var/puppeteer-tableau"
@@ -23,7 +22,8 @@ fetch_tableau_server() {
     local final_url=$(docker logs puppeteer-tableau | grep downloads)
     local docker_volume="/var/puppeteer-tableau/src:/src"
     docker run --name "puppeteer-tableau" --network="puppeteer-tableau_default" --volume="${docker_volume}" --ipc="shareable" -d nodejs:image npm run start -- 64."${distro}" && sleep 8
-    wget "${final_url}" && docker rm -f puppeteer-tableau
+    wget "${final_url}" 
+    docker rm -f puppeteer-tableau
 }
 
 main() {
