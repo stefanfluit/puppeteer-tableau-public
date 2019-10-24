@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Author: Frank Hoogmoed & Stefan Fluit
-# Target: <Insert target here>
+# Target: Downloads the latest Tableau server .deb or .rpm file
 
 # Set bash behaviour
 set -o errexit      	# Exit on uncaught errors
@@ -20,7 +20,12 @@ check_sudo() {
 	fi
 }
 
+fetch_tableau_server() {
+    local distro="${1}"
+    local final_url=$(docker logs puppeteer-tableau | grep downloads)
+    docker run --name puppeteer-tableau --network="puppeteer-tableau_default" --volume="/var/puppeteer-tableau/src:/src" --ipc="shareable" -d nodejs:image npm run start -- 64.${distro} && sleep 8
+    wget "${final_url}" && docker rm -f puppeteer-tableau
 
-docker run --name puppeteer-tableau --network="puppeteer-tableau_default" --volume="/var/puppeteer-tableau/src:/src" --ipc="shareable" -d nodejs:image npm run start -- 64.rpm
+
 sleep 8 && wget $(docker logs puppeteer-tableau | grep downloads)
 #docker rm -f puppeteer-tableau
