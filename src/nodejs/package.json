@@ -1,0 +1,30 @@
+{
+	"name": "fetcher_browser",
+	"version": "0.1.1",
+	"description": "Puppeteer Fetcher",
+	"main": "index.js",
+	"scripts": {
+		"build": "npm install",
+		"buildstart": "npm install && node index.js",
+		"start": "node index.js",
+		"start:dev": "npm install -g nodemon && nodemon --legacy-watch index.js"
+	},
+	"dependencies": {
+		"async": "latest",
+		"body-parser": "latest",
+		"compression": "latest",
+		"cookie-parser": "latest",
+		"defaults-deep": "latest",
+		"express": "latest",
+		"express-force-ssl": "latest",
+		"helmet": "latest",
+		"moment": "latest",
+		"nib": "latest",
+		"promise": "latest",
+		"spdy": "latest",
+		"pug": "latest",
+		"stylus": "latest",
+		"puppeteer": "1.12.2",
+		"mariadb": "latest"
+	}
+}

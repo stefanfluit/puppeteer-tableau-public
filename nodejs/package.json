@@ -1,0 +1,30 @@
+{
+	"name": "puppeteer_tableau",
+	"version": "0.1.1",
+	"description": "Puppeteer Downloader for Tableau",
+	"main": "index.js",
+	"scripts": {
+		"build": "npm install",
+		"buildstart": "npm install && node index.js",
+		"start": "node index.js",
+		"build:dev": "npm install -g nodemon && npm install && nodemon --legacy-watch",
+		"start:dev": "npm install -g nodemon && nodemon --legacy-watch"
+	},
+	"dependencies": {
+		"async": "latest",
+		"body-parser": "latest",
+		"compression": "latest",
+		"cookie-parser": "latest",
+		"defaults-deep": "latest",
+		"express": "latest",
+		"express-force-ssl": "latest",
+		"helmet": "latest",
+		"moment": "latest",
+		"nib": "latest",
+		"promise": "latest",
+		"spdy": "latest",
+		"pug": "latest",
+		"stylus": "latest",
+		"puppeteer": "1.12.2"
+	}
+}
