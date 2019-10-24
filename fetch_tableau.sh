@@ -11,6 +11,18 @@ declare git_location="/var/puppeteer-tableau"
 declare distro="${1}"
 
 # Functions
+check_args_container() {
+    if [[ "${1}" -eq 0 ]]
+    then
+      printf "No arguments supplied.\nSyntax is like:\n sudo ./fetch_tableau.sh deb/rpm \n"
+      exit 1;
+    fi
+    if [[ "$(docker images -q nodejs:image 2> /dev/null)" == "" ]]; then
+        printf "Nodejs docker container not found, pulling."
+        cd "${git_location}"; docker-compose up;
+    fi
+}
+
 check_sudo() {
 	if [ `/usr/bin/whoami` != 'root' ];then
 		echo 'Error: run script with sudo'
@@ -26,6 +38,8 @@ fetch_tableau_server() {
 }
 
 main() {
+    check_args_container
+    # You can uncomment this compose up command if this is not the first time running it. 
     cd "${git_location}"; docker-compose up;
     check_sudo && fetch_tableau_server "${distro}"
 }
