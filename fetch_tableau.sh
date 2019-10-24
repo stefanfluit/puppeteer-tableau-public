@@ -19,19 +19,15 @@ check_sudo() {
 }
 
 fetch_tableau_server() {
-    #local distro="${1}"
-    #local final_url=$(docker logs puppeteer-tableau | grep downloads)
-    #local docker_volume="/var/puppeteer-tableau/src:/src"
-    echo $distro
-    #docker run --name "puppeteer-tableau" --network="puppeteer-tableau_default" --volume="${docker_volume}" --ipc="shareable" -d nodejs:image npm run start -- 64."${distro}" && sleep 8
-    #wget "${final_url}" 
-    #docker rm -f puppeteer-tableau
+    local docker_volume="/var/puppeteer-tableau/src:/src"
+    docker run --name "puppeteer-tableau" --network="puppeteer-tableau_default" --volume="${docker_volume}" --ipc="shareable" -d nodejs:image npm run start -- 64."${distro}" && sleep 10
+    echo $(docker logs puppeteer-tableau | grep downloads)
+    docker rm -f puppeteer-tableau
 }
 
 main() {
     #cd "${git_location}"; docker-compose up;
-    #check_sudo && fetch_tableau_server "${1}"
-    fetch_tableau_server
+    check_sudo && fetch_tableau_server "${distro}"
 }
 
 main
