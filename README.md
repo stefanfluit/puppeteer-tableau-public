@@ -17,7 +17,7 @@ We also assume you have Wget installed and are running Linux. Windows works to b
 
 # How do i use it?
 - Clone this repository
-- Download it in /var and run the .sh script lie: 
+- Download it in /var and run the .sh script like: 
 - sudo ./fetch_tableau.sh deb. So "deb" is a parameter. This might also be rpm, depending on your OS. 
   
 The script will search for nodejs image, and will fetch it if not available. 
