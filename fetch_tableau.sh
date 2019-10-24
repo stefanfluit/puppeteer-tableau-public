@@ -26,7 +26,7 @@ fetch_tableau_server() {
 }
 
 main() {
-    #cd "${git_location}"; docker-compose up;
+    cd "${git_location}"; docker-compose up;
     check_sudo && fetch_tableau_server "${distro}"
 }
 
