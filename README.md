@@ -22,3 +22,5 @@ We also assume you have Wget installed and are running Linux. Windows works to b
   
 The script will search for nodejs image, and will fetch it if not available. 
 Feel free to post questions or contact me. 
+
+Written by Frank Hoogmoed & Stefan Fluit
