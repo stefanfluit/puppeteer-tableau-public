@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 
-//docker run --name gayboi --network="puppeteer-tableau_default" --volume="/host_mnt/c/repos/puppeteer-tableau/src:/src" --ipc="shareable" -d nodejs:image npm run start:dev
+//docker run --name puppeteer-tableau --network="puppeteer-tableau_default" --volume="/host_mnt/c/repos/puppeteer-tableau/src:/src" --ipc="shareable" -d nodejs:image npm run start:dev
 
 process.argv.forEach(function (val, index, array) {
   console.log(index + ': ' + val);
