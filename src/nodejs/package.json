@@ -24,7 +24,7 @@
 		"spdy": "latest",
 		"pug": "latest",
 		"stylus": "latest",
-		"puppeteer": "1.12.2",
+		"puppeteer": "5.2.1",
 		"mariadb": "latest"
 	}
 }
